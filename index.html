@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Fahri Reza</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/favicon-dark.png"
+      id="favicon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const theme = saved || "dark";
+        if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+
+    <header>
+      <nav>
+        <a href="../index.html" class="logo"> fr. </a>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema">
+            <span class="theme-icon" id="themeIcon"></span>
+          </button>
+          <div class="nav-links">
+            <a href="../index.html#contact" class="nav-contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="../index.html#contact"> Contact </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==================== HERO ==================== -->
+
+      <section class="hero">
+        <div class="hero-content">
+          <h2>about</h2>
+
+          <p class="hero-description">
+            Hello I'm Fahri... enjoy creative products from start to finish.I
+            create simple, intuitive and user-centered digital experiences
+            through research, interface design, prototyping, and design systems.
+            My approach combines UX research, interface design, prototyping, and
+            design systems to create meaningful digital products.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT ==================== -->
+
+      <!-- ==================== WORK ==================== -->
+
+      <section id="work" class="work">
+        <div class="section-heading">
+          <h2>things i've designed.</h2>
+        </div>
+
+        <div class="project-list">
+          <!-- PROJECT 01 -->
+
+          <article class="project-card">
+            <a href="projects/erp.html" class="project-image">
+              <img src="images/erp.png" alt="ERP application" />
+            </a>
+
+            <div class="project-info">
+              <a href="projects/erp.html" class="project-category">
+                <p>Enterprise Resource Planning - ERP</p>
+              </a>
+
+              <p>
+                Designing a structured enterprise interface for managing complex
+                business data and workflows.
+              </p>
+
+              <div class="project-tags">
+                <span>UI/UX Design</span>
+                <span>Design System</span>
+                <span>Components</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 -->
+
+          <article class="project-card">
+            <a href="projects/emr.html" class="project-image">
+              <img src="images/emr.png" alt="RME application" />
+            </a>
+
+            <div class="project-info">
+              <a href="projects/emr.html" class="project-category">
+                <p>Electronic Medical Record - EMR</p>
+              </a>
+
+              <p>
+                Designing a healthcare management interface for patient data and
+                medical workflows.
+              </p>
+
+              <div class="project-tags">
+                <span>UI/UX Design</span>
+                <span>Healthcare</span>
+                <span>User Flow</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 -->
+
+          <article class="project-card">
+            <a href="projects/hris.html" class="project-image">
+              <img
+                src="images/hris.png"
+                alt="Workforce attendance application interface"
+              />
+
+            <div class="project-info">
+              <a href="projects/hris.html" class="project-category">
+                <p>Human Resource Information System - HRIS</p>
+              </a>
+
+              <p>
+                Designing attendance and face verification experiences for
+                workforce management.
+              </p>
+
+              <div class="project-tags">
+                <span>UI/UX Design</span>
+                <span>Attendance</span>
+                <span>Face Verification</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== DESIGN SYSTEM ==================== -->
+
+      <section class="design-system">
+        <div class="section-heading">
+          <h2>Building consistency</h2>
+        </div>
+
+        <div class="design-system-content">
+          <div class="design-system-card">
+            <span>01</span>
+
+            <h3>Components</h3>
+
+            <p>
+              A collection of reusable UI components designed to create
+              consistent interfaces.
+            </p>
+          </div>
+
+          <div class="design-system-card">
+            <span>02</span>
+
+            <h3>Design System</h3>
+
+            <p>
+              A structured design system covering typography, colors,
+              components, and UI patterns.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SKILLS ==================== -->
+
+      <section id="skills" class="skills">
+        <div class="section-heading">
+          <h2>I work with.</h2>
+        </div>
+
+        <div class="skills-list">
+          <div class="skill-group">
+            <h3>UX</h3>
+
+            <ul>
+              <li>UX Research</li>
+              <li>User Flow</li>
+              <li>Information Architecture</li>
+              <li>Wireframing</li>
+              <li>Usability Testing</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>UI</h3>
+
+            <ul>
+              <li>Visual Design</li>
+              <li>Responsive Design</li>
+              <li>Design System</li>
+              <li>Prototyping</li>
+              <li>Interaction Design</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools</h3>
+
+            <ul>
+              <li>Figma</li>
+              <li>Adobe Photoshop</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT ==================== -->
+
+      <section id="contact" class="contact">
+        <div class="section-heading">
+          <h2>Let's create something together</h2>
+        </div>
+        <div class="contact-content">
+          <a href="mailto:fahri.rzza@gmail.com" class="button primary-button">
+            Email Me
+          </a>
+          <a href="https://wa.me/6281574975250" class="button primary-button">
+            WhatsApp
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+      <p>© 2026 Fahri Reza. All rights reserved.</p>
+
+      <div class="social-links">
+        <a href="#" target="_blank"> LinkedIn </a>
+
+        <a href="#" target="_blank"> GitHub </a>
+      </div>
+    </footer>
+
+    <button
+      class="back-to-top"
+      id="backToTop"
+      aria-label="Kembali ke atas"
+      type="button"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+      </svg>
+    </button>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
