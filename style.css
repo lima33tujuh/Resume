@@ -1116,6 +1116,8 @@ footer {
    RESPONSIVE
 ================================================== */
 
+/* Titik indikator */
+
 @media (max-width: 768px) {
   /* ---------- Navbar ---------- */
 
@@ -2123,11 +2125,9 @@ footer {
 .case-study-section {
   width: calc(100% - 80px);
   max-width: 960px
-  margin: 0 auto;
-
+  margi: 0 auto;
   padding-top: 40px;
   padding-bottom: 40px;
-
   box-sizing: border-box;
 }
 
@@ -2906,7 +2906,7 @@ footer {
   position: relative;
   width: 100%;
   aspect-ratio: 1360 / 720;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.773);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -3256,7 +3256,7 @@ footer {
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: transparent;
+  background: white;
 }
 
 /* Barisan foto, geser ke samping dengan scroll-snap */
@@ -3385,6 +3385,27 @@ footer {
   border-radius: 999px;
   background: rgba(0, 0, 0, 0);
   transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .carousel-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    z-index: 2;
+    display: flex;
+    gap: 4px;
+    padding: 4px 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0);
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .carousel-dot {
