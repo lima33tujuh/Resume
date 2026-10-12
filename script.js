@@ -419,3 +419,97 @@ if (backToTopBtn) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+
+/* ==================================================
+   CAROUSEL (foto panjang, geser ke samping seperti Instagram)
+================================================== */
+
+document.querySelectorAll(".carousel").forEach((carousel) => {
+  const track = carousel.querySelector(".carousel-track");
+  const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+  const prevBtn = carousel.querySelector(".carousel-prev");
+  const nextBtn = carousel.querySelector(".carousel-next");
+  const dotsWrap = carousel.querySelector(".carousel-dots");
+  const total = slides.length;
+
+  // Satu foto saja: tombol dan titik tidak diperlukan
+  if (total < 2) {
+    [prevBtn, nextBtn, dotsWrap].forEach((el) => {
+      if (el) el.style.display = "none";
+    });
+    return;
+  }
+
+  let index = 0;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function goTo(i) {
+    const target = Math.max(0, Math.min(total - 1, i));
+    track.scrollTo({
+      left: target * track.clientWidth,
+      behavior: reduceMotion.matches ? "auto" : "smooth",
+    });
+  }
+
+  // Titik indikator
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot";
+    dot.setAttribute("aria-label", `Ke foto ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function render() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === index);
+      if (i === index) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === total - 1;
+  }
+
+  // Sinkronkan titik dengan posisi geser (swipe, tombol, maupun klik titik)
+  let ticking = false;
+  track.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        if (!track.clientWidth) return;
+        const newIndex = Math.round(track.scrollLeft / track.clientWidth);
+        if (newIndex !== index) {
+          index = newIndex;
+          render();
+        }
+      });
+    },
+    { passive: true },
+  );
+
+  prevBtn.addEventListener("click", () => goTo(index - 1));
+  nextBtn.addEventListener("click", () => goTo(index + 1));
+
+  // Panah kiri/kanan di keyboard
+  carousel.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      goTo(index + 1);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      goTo(index - 1);
+    }
+  });
+
+  // Saat ukuran layar berubah, tetap di foto yang sama
+  window.addEventListener("resize", () => {
+    track.scrollTo({ left: index * track.clientWidth, behavior: "auto" });
+  });
+
+  render();
+});
