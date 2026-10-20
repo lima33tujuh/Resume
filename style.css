@@ -583,6 +583,14 @@ section {
   column-count: 5;
 }
 
+.masonry-grid-3 {
+  column-count: 3;
+  column-gap: 10px;
+  width: 100%;
+  margin-bottom: 0px;
+  
+}
+
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 10px;
@@ -610,6 +618,10 @@ section {
   .masonry-grid-6 .masonry-item:hover img {
     transform: scale(1.07);
   }
+
+  .masonry-grid-3 .masonry-item:hover img {
+    transform: scale(1.03);
+  }
 }
 
 /* ---------- Responsive ---------- */
@@ -624,18 +636,26 @@ section {
   .masonry-grid {
     column-count: 2;
   }
+
 }
 
 @media (max-width: 768px) {
   .masonry-grid-6 {
     column-count: 3;
   }
+  .masonry-grid-3 {
+  column-count: 2;
+}
 }
 
 @media (max-width: 480px) {
   .masonry-grid {
     column-count: 1;
   }
+
+  .masonry-grid-3 {
+  column-count: 1;
+}
 
   .masonry-grid-6 {
     column-count: 2;
