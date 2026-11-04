@@ -790,47 +790,35 @@ section {
   .masonry-grid {
   column-count: 1;
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  
+ 
   }
 
   .masonry-grid-3 {
   column-count: 1;
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  
+  
   }
 
   .masonry-grid-4 {
   column-count: 2;
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  
+ 
   }
 
   .masonry-grid-6 {
   column-count: 2;
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  
   }
 
   .masonry-item-2 {
   break-inside: avoid;
   margin-bottom: 10px;
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  
   }
 
   .case-study-image-design- {
@@ -2973,10 +2961,7 @@ footer {
   break-inside: avoid;
 
   border-radius: 0px;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+ 
   
   }
 
