@@ -513,3 +513,126 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
 
   render();
 });
+
+/* ==================================================
+   TILT 3D (gambar miring mengikuti kursor)
+================================================== */
+
+document.querySelectorAll("[data-tilt]").forEach((el) => {
+  const img = el.querySelector(".tilt-img");
+  if (!img) return;
+
+  const MAX = parseFloat(el.dataset.tiltMax) || 14; // sudut miring maksimal (derajat)
+  const HOVER_SCALE = parseFloat(el.dataset.tiltScale) || 1.04;
+  const PERSPECTIVE = 1000; // makin kecil, efek 3D makin dramatis
+  const EASE = 0.12; // makin kecil, gerakan makin lembut/lambat
+  const DIRECTION = 1; // ubah ke -1 untuk membalik arah miringnya
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  let targetX = 0;
+  let targetY = 0;
+  let targetS = 1;
+  let currentX = 0;
+  let currentY = 0;
+  let currentS = 1;
+  let rafId = null;
+
+  function render() {
+    const dx = targetX - currentX;
+    const dy = targetY - currentY;
+    const ds = targetS - currentS;
+    const done =
+      Math.abs(dx) < 0.01 && Math.abs(dy) < 0.01 && Math.abs(ds) < 0.0005;
+
+    if (done) {
+      currentX = targetX;
+      currentY = targetY;
+      currentS = targetS;
+    } else {
+      currentX += dx * EASE;
+      currentY += dy * EASE;
+      currentS += ds * EASE;
+    }
+
+    img.style.transform = `perspective(${PERSPECTIVE}px) rotateX(${currentX}deg) rotateY(${currentY}deg) scale(${currentS})`;
+    // Bayangan bergeser ke sisi yang terangkat
+    img.style.setProperty("--shadow-x", `${-currentY * 1.5}px`);
+    img.style.setProperty("--shadow-y", `${20 + currentX * 1.5}px`);
+
+    rafId = done ? null : requestAnimationFrame(render);
+  }
+
+  function start() {
+    if (!rafId) rafId = requestAnimationFrame(render);
+  }
+
+  el.addEventListener("pointermove", (e) => {
+    // Efek hanya untuk mouse/pen, dan dimatikan kalau pengguna minta animasi dikurangi
+    if (e.pointerType === "touch" || reduceMotion.matches) return;
+
+    const rect = el.getBoundingClientRect();
+    const nx = Math.max(
+      -1,
+      Math.min(1, ((e.clientX - rect.left) / rect.width) * 2 - 1),
+    ); // -1 kiri .. 1 kanan
+    const ny = Math.max(
+      -1,
+      Math.min(1, ((e.clientY - rect.top) / rect.height) * 2 - 1),
+    ); // -1 atas .. 1 bawah
+
+    targetY = nx * MAX * DIRECTION;
+    targetX = -ny * MAX * DIRECTION;
+    targetS = HOVER_SCALE;
+    start();
+  });
+
+  el.addEventListener("pointerleave", () => {
+    targetX = 0;
+    targetY = 0;
+    targetS = 1;
+    start();
+  });
+});
+
+
+
+/* ==================================================
+   IMAGE PANJANG (.case-study-image-design):
+   unduh dan decode semua bagian sejak awal
+================================================== */
+
+(function () {
+  const images = Array.from(
+    document.querySelectorAll(".case-study-image-design img"),
+  );
+  if (!images.length) return;
+
+  // 1) Pastikan tidak ada yang menunggu scroll untuk mulai diunduh
+  images.forEach((img) => {
+    img.loading = "eager";
+    img.decoding = "async";
+  });
+
+  // 2) Decode (bongkar ke piksel) begitu gambar selesai terunduh
+  function warm(img) {
+    return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  }
+  images.forEach(warm);
+
+  // 3) "Hangatkan" lagi saat pengunjung mendekati gambar. Kalau browser sempat
+  //    membuang hasil decode untuk menghemat memori, ini menyiapkannya ulang
+  //    sebelum gambar masuk layar.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) warm(entry.target);
+        });
+      },
+      { rootMargin: "150% 0px 150% 0px" },
+    );
+    images.forEach((img) => observer.observe(img));
+  }
+})();
+

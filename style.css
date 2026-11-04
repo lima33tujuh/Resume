@@ -354,6 +354,58 @@ nav {
 }
 
 
+.tilt-stage-narie-deskop1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 2346 / 3129;  /* ganti dengan lebar / tinggi file background-mu */
+  padding: 0;
+  background-image: url("images/narie/design/Banner.webp");
+  background-size: cover;     /* aman, karena rasio kotak sudah sama dengan gambar */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ukuran mockup di dalam kotak, dalam persen dari lebar kotak */
+.tilt-stage-narie .tilt {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.tilt-stage-narie-deskop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 2346 / 3129;  /* ganti dengan lebar / tinggi file background-mu */
+  background-image: url("images/narie/design/bag2.webp");
+  background-size: cover;     /* aman, karena rasio kotak sudah sama dengan gambar */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Desktop: hanya narie-2 yang tampil */
+.tilt-stage-narie-mobile {
+  display: none;
+}
+
+/* Mobile (768px ke bawah): hanya narie-3 yang tampil */
+@media (max-width: 768px) {
+  .tilt-stage-narie-deskop {
+    display: none;
+  }
+
+  .tilt-stage-narie-deskop1 {
+    display: none;
+  }
+
+  .tilt-stage-narie-mobile {
+    display: flex; /* samakan dengan display asli .tilt-stage-narie-3 */
+  }
+}
+
 
 
 
@@ -577,7 +629,9 @@ section {
 
 .masonry-grid {
   column-count: 2;
+  
 }
+
 
 .masonry-grid-6 {
   column-count: 5;
@@ -591,10 +645,85 @@ section {
   
 }
 
+.masonry-grid-4 {
+  column-count: 4;
+  column-gap: 10px;
+  width: 100%;
+  margin-bottom: 0px;
+  
+}
+
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 10px;
   border-radius: 0px;
+}
+
+.masonry-item-2 {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 0px;
+}
+
+.bag1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ Off\ wihite.webp);
+  background-size: cover;     /* aman, karena rasio kotak sudah sama dengan gambar */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bag2 {
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ navy.webp);
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+
+.bag3 {
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ almond.webp);
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+
+.bag4 {
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ blue.webp);
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+.bag5 {
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ oat.webp);
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+
+.bag6 {
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1200 / 2000;
+  background-image: url(images/narie/masonry/b\ black.webp);
+  background-size: cover;  
+  background-repeat: no-repeat;
+}
+
+.masonry-item-narie {
+  padding-bottom: 10px;
 }
 
 .masonry-item img {
@@ -622,6 +751,11 @@ section {
   .masonry-grid-3 .masonry-item:hover img {
     transform: scale(1.03);
   }
+
+  .masonry-grid-4 .masonry-item:hover img {
+    transform: scale(1.03);
+  }
+
 }
 
 /* ---------- Responsive ---------- */
@@ -645,22 +779,72 @@ section {
   }
   .masonry-grid-3 {
   column-count: 2;
-}
+  }
+  .masonry-grid-4 {
+  column-count: 2;
+  }
+
 }
 
 @media (max-width: 480px) {
   .masonry-grid {
-    column-count: 1;
+  column-count: 1;
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   }
 
   .masonry-grid-3 {
   column-count: 1;
-}
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  }
+
+  .masonry-grid-4 {
+  column-count: 2;
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  }
 
   .masonry-grid-6 {
-    column-count: 2;
+  column-count: 2;
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   }
+
+  .masonry-item-2 {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  }
+
+  .case-study-image-design- {
+    margin-bottom: 10px;
+    border-radius: 0px;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+
 }  
+
 
 /* ==================================================
    7. ABOUT
@@ -716,6 +900,7 @@ section {
 
   background: transparent;
 }
+
 
 .project-image img {
   width: 100%;
@@ -1710,10 +1895,23 @@ footer {
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+
+
 .project-card:hover .project-image img {
   transform: scale(1.02);
 }
 
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
 /* ==================================================
    CASE STUDY - ROLE CARDS RESPONSIVE FIX
 ================================================== */
@@ -2144,11 +2342,13 @@ footer {
 
 .case-study-section {
   width: calc(100% - 80px);
-  max-width: 960px
+  
   margi: 0 auto;
   padding-top: 40px;
   padding-bottom: 40px;
   box-sizing: border-box;
+  
+
 }
 
 /* ---------- Section Heading ---------- */
@@ -2213,6 +2413,45 @@ footer {
 
 }
 
+.case-study-image-design-fix {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  margin-bottom: 10px;
+}
+
+.case-study-image-design {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0px auto 0;
+  margin-bottom: 10px;
+}
+
+
+.case-study-image-design img {
+  display: block;
+  width: 100%;
+  height: auto;
+   /* cadangan kalau tidak ada warna inline */
+}
+
+@media (max-width: 768px) {
+  .case-study-image-design {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .case-study-image-design img {
+    border-radius: 0;
+  }
+}
+
+.case-study-image-design- {
+  margin-bottom: 10px;
+}
+
 .case-study-image img {
   width: 100%;
   height: auto;
@@ -2220,6 +2459,34 @@ footer {
   display: block;
 
   border-radius: px;
+}
+
+.tilt-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+    /* ganti dengan lebar / tinggi file background-mu */
+  
+  padding: 0;
+  border-radius: 16px;
+  background-image: url("images/amazy/design/back.webp");
+  background-size: 110%;     /* aman, karena rasio kotak sudah sama dengan gambar */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tilt-stage .tilt {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .tilt-stage {
+    min-height: 380px;
+    padding: 48px 16px;
+  }
 }
 
 /* ==================================================
@@ -2423,6 +2690,8 @@ footer {
     padding-right: 0;
 
     box-sizing: border-box;
+
+  
   }
 }
 
@@ -2447,7 +2716,7 @@ footer {
   }
 
   .project-card:hover .project-image img {
-    transform: scale(1.1);
+    transform: scale(1.0);
   }
 
   /* ---------- ERP — CASE STUDY IMAGES ---------- */
@@ -2641,6 +2910,14 @@ footer {
   margin-bottom: 0px;
 }
 
+.case-image-narie {
+  padding-top: 10px;
+}
+
+
+
+
+
 .showcase-image {
   width: 100%;
   margin: 0 
@@ -2692,9 +2969,15 @@ footer {
   }
 
   .showcase-image {
-    width: calc(100% - 36px);
-    margin-left: auto;
-    margin-right: auto;
+    
+  break-inside: avoid;
+
+  border-radius: 0px;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  
   }
 
   .image-caption {
@@ -3452,3 +3735,27 @@ footer {
     display: none;
   }
 }
+
+
+.tilt {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  padding-top: 20px;
+}
+
+.tilt-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+  will-change: transform;
+  filter: drop-shadow(
+    var(--shadow-x, 0px) var(--shadow-y, 20px) 30px
+      rgba(var(--shadow-color, 0, 0, 0), 0.3)
+  );
+  user-select: none;
+}
+
+
+
