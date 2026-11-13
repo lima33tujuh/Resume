@@ -1123,10 +1123,10 @@ section {
 }
 
 .skill-group {
-  border-top: 1px solid var(--border);
-
+  
   padding-top: 4px;
 }
+
 
 .skill-group h3 {
   margin-bottom:5px;

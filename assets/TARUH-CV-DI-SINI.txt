@@ -1,0 +1,9 @@
+TARUH FILE CV KAMU DI SINI dengan nama persis:
+
+CV-Fahri-Reza.pdf
+
+Tombol "Download CV" di homepage mengarah ke:
+assets/CV-Fahri-Reza.pdf
+
+Jika nama filemu berbeda, ganti juga href-nya di index.html
+(cari "Download CV").
